@@ -1,0 +1,12 @@
+{
+    "name": "shardimage/shardimage-php",
+    "description": "ShardImage PHP Package.",
+    "authors": [
+        {
+            "name": "Lajos Molnar",
+            "email": "lajos.molnar@shardimage.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
