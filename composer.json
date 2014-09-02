@@ -1,12 +1,30 @@
 {
     "name": "shardimage/shardimage-php",
     "description": "ShardImage PHP Package.",
+    "keywords": ["php","yii","yii2","laravel","package","image","shardimage","cloud"],
+    "homepage": "http://shardimage.com/",
+    "license": "MIT",
+    "support": {
+		"issues": "https://github.com/shardimage/shardimage-php/issues?state=open",
+		"blog": "http://shardimage.com/blog",
+		"source": "https://github.com/shardimage/shardimage-php"
+	},
+    "minimum-stability": "dev",
     "authors": [
         {
             "name": "Lajos Molnar",
             "email": "lajos.molnar@shardimage.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "autoload": {
+        "classmap": [
+            "src/ShardImage"
+        ],
+        "psr-0": {
+            "ShardImage": "src/"
+        }
+    }
 }

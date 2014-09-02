@@ -1,8 +1,12 @@
 <?php
 
-namespace Sample;
-$api_key = '';
-$api_secret = '';
+namespace ShardImage;
+//7736b0e..b77c6e7
+$api_key = '28039082405588';
+$api_secret = '$2y$12$LJeVekXtJbwwuEvOwxANTuVPAutM6UK/F4OChq.M2nIqAT.MDYjuu';
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +27,10 @@ $api_secret = '';
                                 <a href="/index.php?sample=image&action=index">List</a>
                             </li>
                             <li>
-                                <a href="/index.php?sample=image&action=store">Create</a>
+                                <a href="/index.php?sample=image&action=upload">Upload</a>
                             </li>
                             <li>
                                 <a href="/index.php?sample=image&action=show">Show</a>
-                            </li>
-                            <li>
-                                <a href="/index.php?sample=image&action=update">Update</a>
                             </li>
                             <li>
                                 <a href="/index.php?sample=image&action=delete">Delete</a>
@@ -51,9 +52,6 @@ $api_secret = '';
                                 <a href="/index.php?sample=cloud&action=index">List</a>
                             </li>
                             <li>
-                                <a href="/index.php?sample=cloud&action=store">Create</a>
-                            </li>
-                            <li>
                                 <a href="/index.php?sample=cloud&action=show">Show</a>
                             </li>
                             <li>
@@ -69,9 +67,6 @@ $api_secret = '';
                         <ul>
                             <li>
                                 <a href="/index.php?sample=filter&action=index">List</a>
-                            </li>
-                            <li>
-                                <a href="/index.php?sample=filter&action=store">Create</a>
                             </li>
                             <li>
                                 <a href="/index.php?sample=filter&action=show">Show</a>
@@ -96,12 +91,21 @@ $api_secret = '';
         </div>
         <div>
             <?php
-            $actions = ['index', 'store', 'show', 'update', 'delete'];
+            $actions = array(
+                'index',
+                'store',
+                'show',
+                'update',
+                'delete',
+                'upload'
+                );
 
-            if (isset($_GET['sample']) && isset($_GET['action'])) {
-                if (file_exists($_GET['sample'] . '.php') && in_array($_GET['action'], $actions)) {
-                    echo '<pre>' . var_export(include $_GET['sample'] . '.php', true) . '</pre>';
-                }
+            if (isset($_GET['sample'])
+            && isset($_GET['action'])
+            && file_exists($_GET['sample'] . '.php')
+            && in_array($_GET['action'], $actions))
+            {
+                echo '<pre>' . var_export(include $_GET['sample'] . '.php', true) . '</pre>';
             }
             ?>
         </div>
